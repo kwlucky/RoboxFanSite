@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOX GUIDES • Ultimate Roblox Help</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
+        
+        :root {
+            --roblox-red: #E60012;
+            --roblox-blue: #00A2FF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 3px solid var(--roblox-red);
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 28px;
+            color: var(--roblox-red);
+            text-shadow: 0 0 10px var(--roblox-red);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--roblox-red);
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1611996575749-79a3ae4cf9c7?w=1600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px var(--roblox-red);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--roblox-red);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 4px solid white;
+        }
+        
+        .btn:hover {
+            transform: scale(1.1);
+            background: #ff3344;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ffffff;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .game-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 3px solid #333;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: var(--roblox-blue);
+            box-shadow: 0 20px 40px rgba(0, 162, 255, 0.3);
+        }
+        
+        .game-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .game-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+        
+        .game-info {
+            padding: 20px;
+        }
+        
+        .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .game-desc {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        
+        .guide-btn {
+            background: var(--roblox-blue);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .guides-section {
+            background: #0f1629;
+        }
+        
+        .guide-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+        
+        .guide-item {
+            background: rgba(255,255,255,0.08);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 6px solid var(--roblox-red);
+        }
+        
+        footer {
+            background: #0a0a0a;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .roblox-note {
+            text-align: center;
+            padding: 20px;
+            background: rgba(230, 0, 18, 0.1);
+            border: 2px solid var(--roblox-red);
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">ROBOX<span style="color:#00A2FF;">GUIDES</span></div>
+            <div class="nav-links">
+                <a href="#games">Games</a>
+                <a href="#guides">Guides</a>
+                <a href="#tips">Pro Tips</a>
+                <a href="#">Community</a>
+                <a href="#" style="background:var(--roblox-red); padding:8px 20px; border-radius:6px;">Submit Guide</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ROBOX GUIDES</h1>
+            <p>Your ultimate destination for Roblox tips, strategies, and game guides</p>
+            <a href="#games" class="btn">BROWSE GUIDES →</a>
+        </div>
+    </section>
+
+    <!-- GAMES SECTION -->
+    <section id="games" class="container">
+        <h2>POPULAR GAMES</h2>
+        <div class="games-grid">
+            
+            <!-- Game 1 -->
+            <div class="game-card">
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1611996575749-79a3ae4cf9c7')"></div>
+                <div class="game-info">
+                    <div class="game-title">Adopt Me!</div>
+                    <div class="game-desc">Master trading, pet collecting, and become the ultimate pet collector.</div>
+                    <button onclick="showGuide('adoptme')" class="guide-btn">View Guides →</button>
+                </div>
+            </div>
+            
+            <!-- Game 2 -->
+            <div class="game-card">
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e')"></div>
+                <div class="game-info">
+                    <div class="game-title">Brookhaven RP</div>
+                    <div class="game-desc">Roleplay like a pro. Best houses, jobs, and RP tips.</div>
+                    <button onclick="showGuide('brookhaven')" class="guide-btn">View Guides →</button>
+                </div>
+            </div>
+            
+            <!-- Game 3 -->
+            <div class="game-card">
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f')"></div>
+                <div class="game-info">
+                    <div class="game-title">Blox Fruits</div>
+                    <div class="game-desc">Devil Fruit tier list, grinding routes &amp; boss strategies.</div>
+                    <button onclick="showGuide('bloxfruits')" class="guide-btn">View Guides →</button>
+                </div>
+            </div>
+            
+            <!-- Game 4 -->
+            <div class="game-card">
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a9c')"></div>
+                <div class="game-info">
+                    <div class="game-title">Dress to Impress</div>
+                    <div class="game-desc">Fashion hacks, theme ideas, and how to win every round.</div>
+                    <button onclick="showGuide('dti')" class="guide-btn">View Guides →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUIDES SECTION -->
+    <section id="guides" class="guides-section">
+        <div class="container">
+            <h2>TOP GUIDES</h2>
+            <div class="guide-list">
+                <div class="guide-item">
+                    <h3>⭐ How to Get Rich Fast in Adopt Me (2026)</h3>
+                    <p>Updated trading values, best items to flip, and secret money glitches.</p>
+                    <small>12.4k reads • 4 days ago</small>
+                </div>
+                <div class="guide-item">
+                    <h3>🔥 Blox Fruits Leveling Guide - Max Level in 48 Hours</h3>
+                    <p>Best grinding spots, fruit recommendations, and awakening paths.</p>
+                    <small>8.9k reads • 1 week ago</small>
+                </div>
+                <div class="guide-item">
+                    <h3>🏠 Brookhaven RP: How to Roleplay Like a Pro</h3>
+                    <p>Best roleplay ideas, voice chat etiquette, and popular jobs.</p>
+                    <small>15.2k reads • 2 weeks ago</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRO TIPS -->
+    <section id="tips" class="container">
+        <h2>PRO TIPS</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+            <div style="background:rgba(255,255,255,0.08); padding:30px; border-radius:12px;">
+                <h3>💎 Robux Saving Tip</h3>
+                <p>Never buy items above 500 Robux unless they're limited. Wait for sales!</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); padding:30px; border-radius:12px;">
+                <h3>🎮 Lag Fix</h3>
+                <p>Lower graphics to 2, disable shadows, and close all background apps.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); padding:30px; border-radius:12px;">
+                <h3>🛡️ Scam Protection</h3>
+                <p>Never click external links or trade for "free Robux" promises.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROBLOX DISCLAIMER -->
+    <div class="roblox-note">
+        <strong>This is a fan-made guide website.</strong><br>
+        Not affiliated with Roblox Corporation. All game names and images are property of their respective owners.
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>ROBOX GUIDES</h3>
+                    <p>Made with ❤️ for the Roblox community</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <p>Popular Games<br>Trading Values<br>Update Logs</p>
+                </div>
+                <div>
+                    <h4>Community</h4>
+                    <p>Discord • TikTok • YouTube</p>
+                </div>
+            </div>
+            <p>&copy; 2026 RoboxGuides • Fan Site</p>
+        </div>
+    </footer>
+
+    <script>
+        function showGuide(game) {
+            let title = "";
+            let content = "";
+            
+            if(game === "adoptme") {
+                title = "Adopt Me! Ultimate Guide";
+                content = `
+                    <h2>Adopt Me! Master Guide 2026</h2>
+                    <p><strong>Best Pets Right Now:</strong></p>
+                    <ul>
+                        <li>Shadow Dragon (Legendary)</li>
+                        <li>Neon Bat Dragon</li>
+                        <li>Frost Dragon</li>
+                    </ul>
+                    <p><strong>Trading Tip:</strong> Always use the value list. Never overpay for pets!</p>
+                `;
+            } else if(game === "brookhaven") {
+                title = "Brookhaven RP Guide";
+                content = "How to get rich, best houses, and roleplay ideas...";
+            } else if(game === "bloxfruits") {
+                title = "Blox Fruits Guide";
+                content = "Current best fruits: Leopard, Dragon, Kitsune...";
+            } else {
+                title = "Dress to Impress Guide";
+                content = "Fashion tips and winning strategies!";
+            }
+            
+            const modal = document.createElement
